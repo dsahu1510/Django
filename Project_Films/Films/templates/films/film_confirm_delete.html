@@ -1,0 +1,14 @@
+
+
+{% block content %}
+<h2> <a href="{% url 'film_list' %}">Films CBV</a> Delete? </h2>
+
+<form method="POST">
+{% csrf_token %}
+
+Are You Sure, You Want To Delete the "{{object}}"? <br>
+
+<input type="submit" value="delete">
+</form>
+
+{% endblock %}

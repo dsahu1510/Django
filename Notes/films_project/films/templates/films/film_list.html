@@ -1,0 +1,15 @@
+{% block content%}
+<h2> <a href="{% url 'films_list' %}">Films CBV</a></h2>
+
+<ul>
+{% for film in object_list %}
+<li> {{film.title}} ({{film.year}} year)
+<a href="{% url 'film_update' film.id %}">edit</a>
+<a href="{% url 'film_delete' film.id %}">delete</a>
+</li>
+{% endfor %}
+
+</ul>
+<a href="{% url 'film_create' %}">Film_new</a>
+
+{% endblock %}
