@@ -1,11 +1,8 @@
 {% block content %}
-
 <h2> <a href="{% url 'film_list' %}">Films CBV</a></h2>
-
-<form method="POST">
+<form method="post">
 {% csrf_token %}
 {{form.as_p}}
 <input type="submit" value="Submit">
 </form>
-
 {% endblock %}
