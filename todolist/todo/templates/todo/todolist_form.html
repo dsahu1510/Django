@@ -1,0 +1,39 @@
+{% extends 'todo/index.html' %}
+
+{% block content %}
+<!-- <h2> <a href="{% url 'todos_list' %}">ToDo List</a></h2>  -->
+
+<div class="container-fluid ">
+    <h2>ToDo List</h2>
+
+    <div class="row">
+        <div class="col-6"></div>
+            <form method="post">{% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- <div>
+    <h2>
+        <a href="{% url 'todos_list' %}"> ToDo</a>
+    </h2>
+    
+    <ul>
+        {% for todo in object_list %}
+        <li>
+            {{todo.title}} <br>
+            {{todo.desc}} {{todo.time}}
+            <button><a href="{% url 'todos_update' todo.id %}">edit</a></button>
+            <button><a href="{% url 'todos_delete' todo.id %}">delete</a></button>
+        </li>
+        <br>
+        {% endfor %}
+    </ul>
+    
+    <button><a href="{% url 'todos_create' %}">New ToDo</a></button>
+</div> -->
+{% endblock %}

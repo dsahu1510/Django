@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Update Details</h2>
+
+<form method="POST" action="/update/{{employee.id}}">
+    {% csrf_token %}
+Employee id: <input type="text" name="eid" required maxlength="10" value="{{employee.eid}}"><br><br>
+Employee Name: <input type="text" name="ename" required maxlength="20" value="{{employee.ename}}"><br><br>
+Employee Email: <input type="email" name="email" value="{{employee.email}}"><br><br>
+Employee Contact: <input type="text" name="econtact" required maxlength="50" value="{{employee.econtact}}"><br><br>
+<button type="submit" > Update</button>
+
+</form>
+
+{% endblock %}

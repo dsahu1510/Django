@@ -1,0 +1,11 @@
+{% extends 'todo/index.html'%}
+
+{% block content%}
+<h2> <a href="{% url 'todos_list' %}">Films CBV</a>: Delete? </h2>
+
+<form method="post">{% csrf_token %}
+Are you sure you want to delete the "{{object}}"?<br>
+<input type="submit" value="delete" />
+</form>
+
+{% endblock %}

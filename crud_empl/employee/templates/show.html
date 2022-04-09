@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+    <head>
+        <body>
+            <table class ='table table-bordered table-sm'>
+
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Email</th>
+                    <th>Employee contact</th>
+                    <th>Actions</th>
+                </tr>
+                <tbody>
+                    {% for employee in employees %}
+
+                        <tr>
+                            <td>{{employee.eid}}</td>
+                            <td>{{employee.ename}}</td>
+                            <td>{{employee.email}}</td>
+                            <td>{{employee.econtact}}</td>
+                                <td>
+                                 <button> <a href="/edit/{{employee.id}}">Edit</a></button>
+                                 <button> <a href="/delete/{{employee.id}}">Delete</a></button>
+                                </td>
+                        </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table><br><br>
+        <button type="submit"><a href="/">Add New Record</button></a>
+        </body>
+    </head>
+</html>
+
+{% endblock %}
