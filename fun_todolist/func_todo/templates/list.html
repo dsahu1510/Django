@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Todo List</h1>
+<button> <a href="/">Add Todo</a></button>
+
+<table class="table" style="margin-top: 2%;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">S_No.</th>
+      <th scope="col">Todo name</th>
+      <th scope="col">description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if context %}
+        {% for data in context %}
+            <tr>
+              
+              <td>{{ data.s_no }}</td>
+              <td>{{data.title }}</td>
+              <td>{{data.desc}}</td>
+              <td>
+                <button><a href="/update/{{data.id}}">Update</a> </button>
+                <button><a href="/delete/{{data.id}}">Delete</a> </button>
+            </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <th>No Data Found</th>
+        </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
