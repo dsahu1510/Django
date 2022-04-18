@@ -17,11 +17,6 @@ def list_view(request):
     context = Todo.objects.all()
     return render(request, 'list.html', {'context' : context})
 
-# def detail_view(request, id):
-
-#     context['data'] = Todo.objects.get(id = id)
-#     return render(request, 'detail_view.html', context)
-
 def update_view(request, id):
     obj = get_object_or_404(Todo, id = id)
     form = TodoForm(request.POST or None, instance=obj)

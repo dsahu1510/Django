@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action=' '>
+    {% csrf_token %}
+
+<h2 >Enter Employee Details</h2><br>
+Employee id: {{form.eid}} <br><br>
+Employee Name: {{form.ename}} <br><br>
+Employee email: {{form.email}} <br><br>
+Employee contact: {{form.econtact}} <br><br>
+
+<button type="submit" action=" submit ">Submit</button>
+</form>
+
+{% endblock %}
