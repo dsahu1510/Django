@@ -2,6 +2,14 @@ from django.shortcuts import render,redirect
 from .models import Employee
 from .forms import EmployeeForm
 
+def index(request):
+    q = request.GET.get('q',None)
+    items = ''
+    if q is None or q is "":
+        employee = Employee.objects.all()
+    elif q is not None:
+        employee = Employee.objects.filter(eid__contains=q)
+
 # Create your views here.
 def createemp(request):
     if request.method == "POST":
@@ -37,9 +45,9 @@ def deleteemp(request, id):
     employee.delete()
     return redirect ('/show')
 
-def search_function(request, id):
-    	search = request.GET.get('search')
-    	q = Model.objects.filter(fieldname=search)
-    	return render(request, 'index.html', {'q':q})
+# # def search_function(request, id):
+#     	search = request.GET.get('search')
+#     	q = Model.objects.filter(fieldname=search)
+#     	return render(request, 'index.html', {'q':q})
 
     

@@ -5,8 +5,11 @@
 <html>
     <head>
         <body>
-            Search: <input type="text" name="search" placeholder="Enter Employee Id">
-            <button type="submit" value="search"><a href = '/show'></a>Click here!</button><br><br>
+            Search:
+            <form action="/index" method="get">
+                <input id="q" name="q" value="{{request.GET.q}}" type="text" placeholder="Enter Employee Id">
+                <button type="submit" value="search"><a href = '/show'></a>Click here!</button><br><br>
+            </form> 
 
             <table class ='table table-bordered table-sm'>
 
